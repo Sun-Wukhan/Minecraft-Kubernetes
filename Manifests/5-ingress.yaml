@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata: 
+  name: minecraft-ingress 
+  namespace: default
+spec: 
+  rules: 
+    - host: minecraft.adina.com
+      http: 
+        paths:
+          - path: /
+            pathType: Prefix 
+            backend: 
+              service: 
+                name: minecraft-server
+                port: 
+                  number: 25565
